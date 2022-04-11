@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import GoalForm from "../components/GoalForm";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -12,7 +13,16 @@ const Dashboard = () => {
     }
   }, [user, navigate]);
 
-  return <div>Dashboard</div>;
+  return (
+    <Fragment>
+      <section className="heading">
+        <h1>Welcome {user && user.name}</h1>
+        <p>Goals Dashboard</p>
+      </section>
+
+      <GoalForm />
+    </Fragment>
+  );
 };
 
 export default Dashboard;
