@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-// import { createGoal } from "../features/auth/authSlice";
+import { useDispatch } from "react-redux";
+import { createGoal } from "../features/goals/goalsSlice";
 
 const GoalForm = () => {
   const [goal, setGoal] = useState("");
@@ -9,8 +9,8 @@ const GoalForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(createGoal({ goal }));
-    // setGoal("");
+    dispatch(createGoal({ text: goal }));
+    setGoal("");
   };
 
   return (
